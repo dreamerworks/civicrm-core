@@ -101,7 +101,7 @@
             .on('click.crm-pager', 'a.ui-spinner-button', function(e) {
               var $el = $(this);
               // Update after a short delay to allow multiple clicks
-              spinning !== null && window.clearTimeout(spinning);
+              !(spinning !== null || window.clearTimeout(spinning));
               spinning = window.setTimeout(function() {
                 if ($el.is('.crm-pager a')) {
                   page($el.siblings('input[name^=crmPID]').spinner('value'));
